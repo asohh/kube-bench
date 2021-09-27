@@ -7,7 +7,7 @@ COPY cmd/ cmd/
 COPY internal/ internal/
 ARG KUBEBENCH_VERSION
 ARG GOOS=linux
-ARG GOARCH=amd64
+ARG GOARCH=ppc64le
 RUN GO111MODULE=on CGO_ENABLED=0 GOOS=$GOOS GOARCH=$GOARCH go build -a -ldflags "-X github.com/aquasecurity/kube-bench/cmd.KubeBenchVersion=${KUBEBENCH_VERSION} -w" -o /go/bin/kube-bench
 
 FROM alpine:3.14.2 AS run
